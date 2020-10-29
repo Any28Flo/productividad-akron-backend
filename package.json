@@ -1,0 +1,11 @@
+{
+  "name": "productividad-akron-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Erika Flores",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  }
+}
