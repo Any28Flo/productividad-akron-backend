@@ -3,7 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const initDB = require("./services/mongodb");
-const taskRoutes = require('./middlewares/taskRoutes')
+const userRoutes = require('./routes/userRoutes');
+const taskRoutes = require('./routes/taskRoutes');
 const PORT = 8080 || process.env.PORT;
 
 const app = express();
@@ -12,14 +13,12 @@ app.use(cors({
     credentials : true,
     origin: ['http://localhost:3000']
 }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(express.json({extended: true}))
 
 initDB()
 
-app.use('/task', taskRoutes);
-
+//app.use('/task', taskRoutes);
+app.use('/user', userRoutes);
 app.listen(PORT, () => {
     console.log(`🚀 app running on ${PORT}`)
 
