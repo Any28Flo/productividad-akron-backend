@@ -19,6 +19,8 @@ initDB()
 
 //app.use('/task', taskRoutes);
 app.use('/user', userRoutes);
+app.use('/task', taskRoutes);
+
 app.listen(PORT, () => {
     console.log(`🚀 app running on ${PORT}`)
 
