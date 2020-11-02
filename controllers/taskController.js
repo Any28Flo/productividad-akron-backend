@@ -28,8 +28,7 @@ exports.registerTask = async (req, res) =>{
 }
 exports.listTasks = async(req, res) =>{
     const {user} = req.headers;
-
-    const tasks = await Task.findOne({user: user, status: 'active'});
+    const tasks = await Task.find({user: user});
     if (tasks !== null){
         return (
             res.status(200).json({

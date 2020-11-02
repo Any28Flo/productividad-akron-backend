@@ -1,6 +1,6 @@
 const express = require ('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
 const initDB = require("./services/mongodb");
 const userRoutes = require('./routes/userRoutes');
@@ -13,11 +13,10 @@ app.use(cors({
     credentials : true,
     origin: ['http://localhost:3000']
 }));
-app.use(express.json({extended: true}))
+app.use(bodyParser.json())
 
 initDB()
 
-//app.use('/task', taskRoutes);
 app.use('/user', userRoutes);
 app.use('/task', taskRoutes);
 
